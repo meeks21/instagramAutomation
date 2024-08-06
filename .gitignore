@@ -3,6 +3,7 @@ config.py
 geckodriver.log
 info.txt
 session.json
+compressed_image.jpg
 
 #directories
 __pycache__/
