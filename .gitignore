@@ -1,0 +1,12 @@
+#files
+config.py
+geckodriver.log
+info.txt
+session.json
+
+#directories
+__pycache__/
+logos/
+config/
+myenv/
+memes/
