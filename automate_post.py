@@ -1,6 +1,7 @@
 from instagrapi import Client
 from instagrapi.exceptions import LoginRequired
-from config import username, password
+from config import username, password, api_key
+from ImageCaptioner import ImageCaptioner
 import logging
 
 logger = logging.getLogger()
@@ -42,12 +43,13 @@ def login_user(username, password):
 
 # Example usage
 if __name__ == "__main__":
-    USERNAME = {username}
-    PASSWORD = {password}
+    USERNAME = username
+    PASSWORD = password
     client = login_user(USERNAME, PASSWORD)
 
-# Upload a photo
-cl.photo_upload('/home/meeks/groovePlant/logos/sage5.jpeg', caption='Channeling ancient wisdom and mystery. 🌌✨ #MysticVibes #WisdomUnveiled')
+    # Initialize the captioner
+    captioner = ImageCaptioner(api_key)
 
-
-
+    # Upload a photo
+    caption = captioner.get_image_caption('/home/meeks/groovePlant/logos/sage5.jpeg')
+    cl.photo_upload('/home/meeks/groovePlant/logos/sage5.jpeg', caption=caption)
